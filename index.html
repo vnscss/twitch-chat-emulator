@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" /> 
+    
+</head>
+<body>
+     <script src="script.js" defer></script> 
+
+    <div class="container">
+
+        <div class="chatContainer">
+        
+            <div class="chat" id="chat">
+           
+            </div>
+        
+            <div class="enviar">
+                <input class="enviarInput" type="text" placeholder="   Envie uma mensagem">
+                <button class="chatButton" >Chat</button>
+            </div>
+    
+        </div>
+
+        <div class="live">
+        
+            <div class="player">
+
+            </div>
+
+            <div class="infos">
+                <div class="foto">
+                    <div class="fotoCanal">
+                        <img class="imgFotoCanal" src="assets/Captura de tela 2023-11-28 230001.jpg">
+                    </div>
+                    <div class="aovivo"> <h1>AO VIVO</h1></div>
+                </div>
+
+                <div class="tituloInfos">
+                    <h1 class="nomeCanal">Danielcris14</h1>
+                    <p class="titulo">LIVE so ACABA quando eu ZERAR!🤬 -- !chat !sub !discord</p>
+                    <p class="jogo">Donkey Kong Country Returns</p>
+                    <div class="tags"></div>
+                </div>
+
+                <div class="channelButtons">
+
+                    <button class="seguir"><svg type="color-fill-current" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px" class="ScSvg-sc-1hrsqw6-1 ihOSMR"><g><path fill-rule="evenodd" d="M9.171 4.171A4 4 0 006.343 3H6a4 4 0 00-4 4v.343a4 4 0 001.172 2.829L10 17l6.828-6.828A4 4 0 0018 7.343V7a4 4 0 00-4-4h-.343a4 4 0 00-2.829 1.172L10 5l-.829-.829zm.829 10l5.414-5.414A2 2 0 0016 7.343V7a2 2 0 00-2-2h-.343a2 2 0 00-1.414.586L10 7.828 7.757 5.586A2 2 0 006.343 5H6a2 2 0 00-2 2v.343a2 2 0 00.586 1.414L10 14.172z" clip-rule="evenodd"></path></g></svg>Seguir</button>   <button class="inscrever"><svg width="100%" height="100%" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M11.456 8.255 10 5.125l-1.456 3.13-3.49.485 2.552 2.516-.616 3.485L10 13.064l3.01 1.677-.616-3.485 2.553-2.516-3.491-.485zM7.19 6.424l-4.2.583c-.932.13-1.318 1.209-.664 1.853l3.128 3.083-.755 4.272c-.163.92.876 1.603 1.722 1.132L10 15.354l3.579 1.993c.846.47 1.885-.212 1.722-1.132l-.755-4.272 3.128-3.083c.654-.644.268-1.723-.664-1.853l-4.2-.583-1.754-3.77c-.406-.872-1.706-.872-2.112 0L7.19 6.424z" clip-rule="evenodd"></path></svg>Inscrever-se</button>
+                    <div class="viewersInfo"> <p class="viewers"><svg type="color-text-accessible-red" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px" class="ScSvg-sc-1hrsqw6-1 fHPQCq"><g><path fill-rule="evenodd" d="M5 7a5 5 0 116.192 4.857A2 2 0 0013 13h1a3 3 0 013 3v2h-2v-2a1 1 0 00-1-1h-1a3.99 3.99 0 01-3-1.354A3.99 3.99 0 017 15H6a1 1 0 00-1 1v2H3v-2a3 3 0 013-3h1a2 2 0 001.808-1.143A5.002 5.002 0 015 7zm5 3a3 3 0 110-6 3 3 0 010 6z" clip-rule="evenodd"></path></g></svg>14.777</p> <p class="time">14:41:04</p> </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <div class="controls">
+        <div class="moodButtons">
+            <h1>Chat Mood</h1>
+            <button class="happy"> <img src="assets/grinning-face-with-big-eyes_1f603.png"></button>
+            <button class="mid"> <img src="assets/neutral-face_1f610.png"></button>
+            <button class="sad"> <img src="assets/slightly-frowning-face_1f641.png"></button>
+        </div>
+        
+        <div class="range">
+            <h1>Speed Range</h1>
+            <input id='speedrange' type="range" min="50" max="3000" value="2000" step="50" onchange="clearInterval(intervalLoop); intervalLoop = setInterval(() => {chatspan(); chatremover()},(document.getElementById('speedrange').value ));; "/>
+            <svg role="presentation" width="650px" height="10" xmlns="http://www.w3.org/2000/svg">
+                <rect class="range__tick" x="1%" y="3" width="1" height="10"></rect>
+                <rect class="range__tick" x="34.5%" y="3" width="1" height="10"></rect>
+                <rect class="range__tick" x="67.7%" y="3" width="1" height="10"></rect>
+                <rect class="range__tick" x="84.5%" y="3" width="1" height="10"></rect>
+                <rect class="range__tick" x="99.6%" y="3" width="1" height="10"></rect>
+             </svg>
+             <svg role="presentation" width="650px" height="14" xmlns="http://www.w3.org/2000/svg">
+                <text class="range__point" x="0.5%" y="14" text-anchor="start">3s</text>
+                <text class="range__point" x="35%" y="14" text-anchor="middle">2s</text>
+                <text class="range__point" x="68%" y="14" text-anchor="middle">1s</text>
+                <text class="range__point" x="85%" y="14" text-anchor="middle">0,5s</text>
+                <text class="range__point" x="100%" y="14" text-anchor="end">0,05s</text>
+             </svg>
+        </div>
+       
+        <div class="lingua"> 
+            <h1>Language</h1>
+            <button class="pt-br"><img src="assets/flag-brazil_1f1e7-1f1f7.png"></button> 
+            <button><img src="assets/flag-united-states_1f1fa-1f1f8.png"></button>
+        </div>
+    </div>
+</body>
+</html>

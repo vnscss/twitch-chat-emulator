@@ -1,0 +1,540 @@
+@font-face {
+    font-family: 'twitch';
+    src: url(font/Roobert-Regular.ttf);
+}
+
+
+.chat::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px;
+}
+  
+.chat::-webkit-scrollbar-track {
+    background: #18181b
+}
+  
+.chat::-webkit-scrollbar-thumb {
+    background-color: #525254;
+    border-radius: 20px; 
+    border: none; 
+}
+
+.chat::-webkit-scrollbar-corner{
+    background-color: rgb(28, 29, 33);
+}
+
+body{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    'container'
+    'controls';
+    grid-template-rows: 70% 20%;
+    align-items: center;
+    justify-content: center;
+    font-family: twitch;
+    font-style: inherit;
+    font-weight: 500;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.container{
+    width: 1120px;
+    height: 600px;
+    margin-top: 30px;
+    background-color: #18181b;
+    display: grid;
+    grid-template-areas: 
+    'live chat'
+    'live chat';
+    grid-template-columns: 75% 25%;
+    grid-area: container;
+    box-shadow: 0px 5px 150px 10px #7b00e5;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+
+.live{
+    grid-area: live;
+    background-color: blueviolet;
+    display: grid;
+    grid-template-areas: 
+    'player'
+    'infos';
+    grid-template-rows: 80% 20%;
+}
+
+.live .player{
+    grid-area: player;
+    background-image: url(assets/live.gif);
+    background-size: 100% 100%;
+}
+
+.live .infos{
+    grid-area: infos;
+    background-color: #0e0e10;
+}
+
+
+.chatContainer{
+    grid-area: chat;
+    background-color: #18181b;
+    display: grid;
+    grid-template-areas: 
+    'chat'
+    'enviar';
+    grid-template-rows: 90% 10%;
+    overflow: hidden;
+    margin-left: 2px;
+}
+
+.chatContainer .chat{
+    background-color: #18181b;
+    grid-area: chat;
+    overflow-y: scroll;
+}
+
+.chatContainer .enviar{
+    background-color: #18181b;
+    grid-area: enviar;
+    display: grid;
+    grid-template-areas: 
+    'input'
+    'chatBtn';
+    margin-left: 6px;
+    margin-right: 8px;
+}
+
+.enviar .enviarInput{
+    grid-area: input;
+    width: 256px;
+    height: 25px;
+    background: none;
+    border: 2px solid #67676b;
+    border-radius: 3px;
+    font-family: twitch;
+    font-style: inherit;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+}
+
+.enviar .enviarInput:focus{
+    outline: 2px solid #952ffc;
+    outline-offset: 0px;
+    border: 2px solid #952ffc;
+    border-radius: 3px;
+}
+
+.enviar .enviarInput:hover:not(:focus){
+    outline: 2px solid #67676b;
+    outline-offset: -1px;
+}
+
+.enviar .chatButton{
+    grid-area: chatBtn;
+    align-items: end;
+    height: 22px;
+    background-color: #952ffc;
+    border: none;
+    border-radius: 3px;
+    font-family: twitch;
+    font-style: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: white;
+    text-align: center;
+}
+
+.enviar .chatButton:hover{
+    background-color: #7b00e5;
+}
+
+
+*:focus {
+    outline: none;
+}
+
+.chat span{
+    font-weight: bolder;
+    letter-spacing: 0.4px;
+}
+
+.controls{
+    background-color: #0e0e10;
+    width: 1120px;
+    height: 100%;
+    margin-top: 20px;
+    grid-area: controls;
+    box-shadow: 0px 5px 50px 10px #7b00e5;
+    overflow: hidden;
+    border-radius: 15px;
+    display: grid;
+    grid-template-areas: 
+    'mood range lingua';
+    grid-template-columns: 210px auto 210px;
+    align-items: center;
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 650px;
+  }
+  
+  /* Removes default focus */
+  input[type="range"]:focus {
+    outline: none;
+  }
+  
+  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+  /* slider track */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #29292e;
+    border-radius: 0.5rem;
+    height: 5px;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -8px; /* Centers thumb on the track */
+    background-color: #7300ff;
+    border-radius: 0.5rem;
+    height: 1.5rem;
+    width: 0.5rem;
+  }
+  
+  
+  /*********** Firefox styles ***********/
+  /* slider track */
+  input[type="range"]::-moz-range-track {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-moz-range-thumb {
+    background-color: #7300ff;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 1.5rem;
+    width: 0.5rem;
+  }
+
+
+.chat p{
+    color: white;
+    margin: 2px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+}
+
+.chat  p:hover{
+    background-color: #3d3d40;
+    border-radius: 3px;
+}
+
+input#speedrange{
+    transform: rotateY(180deg)
+}
+
+
+
+.infos{
+    display: grid;
+    grid-template-areas: 
+    'foto tituloInfos buttons';
+    grid-template-columns: 110px auto 210px;
+    grid-template-rows: 30px;
+}
+
+.foto{
+    grid-area: foto;
+    display: block;
+}
+
+.imgFotoCanal{
+    width: 80px;
+    margin-left: 10px;
+    margin-top: 10px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid red;
+}
+
+.aovivo h1{
+    position: absolute;
+    border-radius: 5px;
+    background-color: red;
+    font-size: 13px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    width: 70px;
+    margin-left: 17px;
+    margin-top: -15px;
+}
+
+.tituloInfos{
+    grid-area: tituloInfos;
+
+}
+
+.tituloInfos h1 {
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.tituloInfos h1:hover{
+    text-decoration: 1px underline #a970ff;
+}
+
+.tituloInfos p.titulo {
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.tituloInfos p.jogo {
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #a46ad1;
+}
+
+.tituloInfos p.jogo:hover{
+    text-decoration: 1px underline #7260ff;
+    color: #7260ff;
+}
+
+.channelButtons{
+    padding-top: 10px;
+    grid-area: buttons;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    'seguir inscrever'
+    'view view';
+    grid-template-columns: 75px 120px;
+    gap: 6px;
+}
+
+
+.seguir{
+    grid-area: seguir;
+    display: flex;
+    width: 75px;
+    height: 22px;
+    background-color: #952ffc;
+    border: none;
+    border-radius: 3px;
+    font-family: twitch;
+    font-style: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: white;
+    text-align: center;
+}
+
+.seguir:hover{
+    background-color: #7b00e5;
+}
+
+.seguir svg{
+    fill: white;
+    margin-right: 3px;
+    margin-top: -1px;
+}
+
+
+.inscrever{
+    grid-area: inscrever;
+    display: flex;
+    width: 120px;
+    height: 22px;
+    background-color: #29292e;
+    border: none;
+    border-radius: 3px;
+    font-family: twitch;
+    font-style: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: white;
+}
+
+.inscrever:hover{
+    background-color: #2f2f35;
+}
+
+
+.inscrever svg{
+    margin-right: 3px;
+    margin-top: -1px;
+    width: 17px;
+    fill: white;
+}
+
+.viewersInfo{
+    margin-top: 5px;
+    grid-area: view;
+    display: flex;
+    justify-content: end;
+}
+
+p.viewers{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    color: red;
+    font-weight: bold;
+}
+
+p.viewers svg{
+    fill: red;
+    width: 20px;
+    margin-top: -3px;
+    margin-right: 3px;
+}
+
+p.time{
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.moodButtons {
+    height: 200px;
+    grid-area: mood;
+    display: grid;
+    grid-template-rows: 30px 50px 50px 50px;
+    justify-content: center;
+    gap: 3px;
+}
+
+.moodButtons h1{
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    color: white;
+    text-align: initial;
+    
+}
+
+.moodButtons button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #952ffc;
+    border: none;
+    margin-left: 40px;
+}
+
+.moodButtons button:hover{
+    background-color: #7b00e5;
+}
+
+.moodButtons img{
+    height: 40px;
+    width: 40px;
+}
+
+.range{
+    height: 100px;
+    grid-area: range;
+    display: inline;
+
+}
+
+.range h1{
+    padding: 0;
+    margin: 0;
+    width: 700px;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: white;
+}
+
+.range__tick {
+    fill: #ffffff;
+}
+
+.range__point{
+    fill: #ffffff;
+}
+
+.lingua{
+    height: 200px;
+    grid-area: lingua;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 35px 65px 65px;
+    justify-content: center;
+    gap: 6px;
+}
+
+.lingua button{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #952ffc;
+    border: none;
+    margin-left: 30px;
+}
+
+.lingua button:hover{
+    background-color: #7b00e5;
+}
+
+.lingua img{
+    height: 50px;
+    width: 50px;   
+}
+
+.lingua h1{
+    padding: 0;
+    margin: 0;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: white;
+    height: 30px;
+}
+
